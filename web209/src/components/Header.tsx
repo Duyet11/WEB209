@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Link, NavLink } from 'react-router-dom';
+import { CountCT } from '../layout/client';
 
 type Props = {
     title:string;
 }
 
 const Header = (props: Props) => {
+  const [count,setCount] = useContext(CountCT) as any
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="container">
@@ -25,18 +28,17 @@ const Header = (props: Props) => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">
-              Home
-            </a>
+            <NavLink to={'/'}>Home</NavLink>
           </li>
           <li className="nav-item">
-            <a className="nav-link">Features</a>
+          <NavLink to={'/details'}>Details</NavLink>
           </li>
           <li className="nav-item">
-            <a className="nav-link">Pricing</a>
+            <NavLink to={'/demo'}>Demo</NavLink>
           </li>
         </ul>
       </div>
+      <div>Số đếm: {count}</div>
     </div>
   </nav>
   )

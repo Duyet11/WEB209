@@ -1,18 +1,17 @@
-import React from 'react'
+import React, { createContext, useState } from 'react'
 import Header from '../components/Header'
-import { Outlet } from 'react-router-dom'
 import Footer from '../components/Footer'
+import { Outlet } from 'react-router-dom'
 
-
-type Props = {}
-const Client = (props:Props) => {
+export const CountCT = createContext([0,(e:number)=>{}]) ;
+const Client = () => {
+  const [count,setCount] = useState(0);
   return (
-    <>
-      <Header title='LOGO'/>
+    <CountCT.Provider value={[count,setCount]}>
+    <Header title='LOGO'/>
         <Outlet/>
-        <Footer/>
-    </>
+    <Footer/>
+    </CountCT.Provider>
   )
 }
-
 export default Client
