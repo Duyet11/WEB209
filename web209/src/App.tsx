@@ -18,6 +18,7 @@ function App() {
     <Routes>
       <Route path='/' Component={Client}>
         <Route path='' Component={Home}/>  
+        <Route path='demo' Component={Tempaltedemo}/>
       </Route>
       <Route path='/dashboard' Component={Dashboard}/>
     </Routes>
